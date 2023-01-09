@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HandleChartController ;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Initial Route
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HandleChartController::class, 'showRegiones']);
