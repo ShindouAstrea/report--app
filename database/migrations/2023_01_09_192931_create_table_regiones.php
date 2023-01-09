@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('regiones', function (Blueprint $table) {
-            $table->primary('idRegion');
+            $table->index('idRegion');
+            $table->integer('idRegion')->primary();
             $table->string('nombreRegion');
         });
     }

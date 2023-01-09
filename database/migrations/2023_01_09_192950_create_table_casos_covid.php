@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('casos_covid', function (Blueprint $table) {
-            $table->foreignId('idRegion')->constrained('regiones');
+            $table->integer('idRegion');
+            $table->foreign('idRegion')->references('idRegion')->on('regiones');
             $table->integer('numeroDeFallecidos');
             $table->integer('numeroDeCasosAsintomaticos');
             $table->integer('numeroDeCasosMasculinos');
