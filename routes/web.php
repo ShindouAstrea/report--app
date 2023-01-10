@@ -15,4 +15,5 @@ use App\Http\Controllers\HandleChartController ;
 */
 // Initial Route
 
-Route::get('/', [HandleChartController::class, 'showRegiones']);
+Route::get('/', [HandleChartController::class, 'getAllCasosCovid']);
+Route::get('/table',[HandleChartController::class, 'setTable']);
