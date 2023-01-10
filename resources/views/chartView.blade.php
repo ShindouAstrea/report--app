@@ -13,7 +13,7 @@
     var userData = <?php echo json_encode($userData)?>;
     Highcharts.chart('container', {
         title: {
-            text: 'New User Growth, 2020'
+            text: 'Grafico de Regiones'
         },
         subtitle: {
             text: 'Source: positronx.io'
