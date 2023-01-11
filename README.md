@@ -4,19 +4,50 @@
 
 # Requisitos
 
-    Para poder visualizar el proyecto  se necesitan las siguientes instalaciones:
+Para poder visualizar el proyecto  se necesitan las siguientes instalaciones:
 
-- [NodeJs]
+- [Git](https://git-scm.com/) -> para poder Clonar el repositorio
 
-- [XAMPP] -> Para Iniciar el servidor de base de datos
+- [XAMPP](https://www.apachefriends.org/es/index.html) -> Para Iniciar el servidor de base de datos y tener la instalacion de php
 
-- [Composer] -> Para poder tener la linea de comandos de php
+- [Postgres](https://www.postgresql.org/download/)-> Gestor de base de datos o el gestor de tu preferencia.
 
-[NodeJs]: https://nodejs.org/en/
-[XAMPP]:https://www.apachefriends.org/es/index.html
-[Composer]:https://getcomposer.org/
-# Instalacion / ejecucion
+- [Composer](https://getcomposer.org/) -> Para poder tener la linea de comandos de php
 
-Para poder ejecutar el proyecto debes:
+- [Visual Studio Code](https://code.visualstudio.com/) -> Para editar el codigo o visualizarlo , tambien puedes ocupar el que desees.
 
-1. Clonar el repositorio en el lugar que desees *
+
+# Primeros Pasos
+
+Primero que todo hay que preparar el ambiente de trabajo:
+
+
+1. Crea una Carpeta donde guardaras el proyecto ejemplo "report_app"
+2. Abre una terminal y posicionate que creaste en el paso anterior.
+
+Ejemplo:    
+
+    cd c:/users/tu_nombre/desktop/report_app
+
+3. Clonar el Repositorio
+
+    ```shell 
+    git clone https://github.com/ShindouAstrea/report--app.
+    ```
+4. Instalar las dependencias de Laravel
+    ```shell 
+    composer i
+    ```
+5. Abre la carpeta "report--app" en el editor de texto (Visual Studi Code, Sublime text , etc)
+6. Crea un archivo .env y copia todo el codigo del archivo .env.example ubicado en la raiz del proyecto.
+
+# Configuracion
+
+
+
+
+
+
+
+
+
