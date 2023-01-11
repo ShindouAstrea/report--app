@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('numeroDeCasosAsintomaticos');
             $table->integer('numeroDeCasosMasculinos');
             $table->integer('numeroDeCasosFemeninos');
-            $table->string('mesDelReporte');
+            $table->date('mesDelReporte');
         });
     }
 
