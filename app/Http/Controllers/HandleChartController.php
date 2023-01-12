@@ -4,40 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
+
 class HandleChartController extends Controller
 {
-    public function showCharts(){
-        return('welcome');
-    }
-    // public function handleChart()
-    // {
-    //     $userData = User::select(DB::raw("COUNT(*) as count"))
-    //                 ->whereYear('created_at', date('Y'))
-    //                 ->groupBy(DB::raw("Month(created_at)"))
-    //                 ->pluck('count');
-          
-    //     return view('chartView', compact('userData'));
-    // }
-    public function getRegiones(){
-        $data = DB::table('regiones')->get();
-        return view('welcome',compact('regiones'));
-    }
-    public function getCasosCovidByMonth(){
-
-    }
-    public function getAllCasosCovid(){
-        $data = DB::table('regiones')
-                ->select('regiones.nombreRegion','casos_covid.numeroDeCasosAsintomaticos','casos_covid.numeroDeFallecidos','casos_covid.mesDelReporte')
+    public function getAllCasosCovid(Request $request){
+        
+        $dataBD = DB::table('regiones')
+                ->select('regiones.nombreRegion','casos_covid.numeroDeCasosAsintomaticos','casos_covid.numeroDeFallecidos','casos_covid.numeroDeCasosMasculinos','casos_covid.numeroDeCasosFemeninos',DB::raw('Month(casos_covid.mesDelReporte) as mesDelReporte'))
                 ->join('casos_covid','regiones.idRegion','=','casos_covid.idRegion')
-                ->groupBy('casos_covid.mesDelReporte','casos_covid.idRegion','regiones.nombreRegion','casos_covid.numeroDeCasosAsintomaticos','casos_covid.numeroDeFallecidos','casos_covid.mesDelReporte')
+                ->groupBy('casos_covid.mesDelReporte','casos_covid.idRegion','regiones.nombreRegion','casos_covid.numeroDeCasosAsintomaticos','casos_covid.numeroDeFallecidos','casos_covid.numeroDeCasosMasculinos','casos_covid.numeroDeCasosFemeninos','casos_covid.mesDelReporte')
                 ->orderBY('casos_covid.mesDelReporte','asc')
                 ->orderBy('casos_covid.idRegion','asc')
-                ->having('casos_covid.mesDelReporte','=','Marzo')
                 ->get();
-                return view('welcome',compact('data'));
+        //Arreglo que almacenara con clave las regiones con sus respectivos reportes de acuerdo al mes ;
+        $data=[];
+        foreach($dataBD as $value){
+            //Se almacenan todos los reportes de la region actualmente del reporte segun la fecha del reporte
+            $casosReportados = [
+                "numeroDeCasosAsintomaticos"=>$value->numeroDeCasosAsintomaticos,
+                "numeroDeFallecidos"=>$value->numeroDeFallecidos ,
+                "numeroDeCasosMasculinos"=>$value->numeroDeCasosMasculinos ,
+                "numeroDeCasosFemeninos"=>$value->numeroDeCasosFemeninos 
+            ];
+            $data[$value->nombreRegion][$value->mesDelReporte] = $casosReportados ;
+        };
+        $input = $request->all();
+        return view('chartView',compact('data'));
     }
-    public function setTable(){
-        return view('tabla');
-    }
+    
 }
