@@ -1,5 +1,5 @@
 
-INSERT INTO regiones ("idRegion", "nombreRegion") VALUES
+INSERT INTO regiones (idRegion, nombreRegion) VALUES
 (1, 'Arica y Parinacota'),
 (2, 'Tarapaca'),
 (3, 'Antofagasta'),
@@ -17,7 +17,7 @@ INSERT INTO regiones ("idRegion", "nombreRegion") VALUES
 (15, 'Aysen'),
 (16, 'Magallanes');
 
-INSERT INTO casos_covid ("idRegion", "numeroDeCasosAsintomaticos", "numeroDeFallecidos", "numeroDeCasosMasculinos", "numeroDeCasosFemeninos", "mesDelReporte") VALUES
+INSERT INTO casos_covid (idRegion, numeroDeCasosAsintomaticos, numeroDeFallecidos, numeroDeCasosMasculinos, numeroDeCasosFemeninos, mesDelReporte) VALUES
 (1, 308, 1, 185, 123, '2022-05-31'),
 (2, 272, 60, 163, 109, '2022-05-31'),
 (3, 740, 61, 444, 296, '2022-05-31'),
