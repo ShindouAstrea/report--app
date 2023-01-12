@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HandleChartController ;
+use Illuminate\Http\Middleware\HandleCors;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,5 @@ use App\Http\Controllers\HandleChartController ;
 // Initial Route
 
 Route::get('/', [HandleChartController::class, 'getAllCasosCovid']);
+
 Route::get('/table',[HandleChartController::class, 'setTable']);
