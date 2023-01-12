@@ -78,6 +78,7 @@
                 Highcharts.chart('container', {
                 chart: {
                     type: 'column',
+                    zoomType:'xy'
                     
                 },
                 title: {
@@ -93,15 +94,20 @@
                     title: {
                         text: 'Cantidad de personas'
                     },
-                    
+                    max:1000
                 },
                
                 plotOptions: {
                     column: {
                         pointPadding: 0,
                         borderWidth: 0
-                    }
+                    },
+                    
                 },
+                legend:{
+                    
+                },
+                
                 series: [{
                     name: 'Total Fallecidos',
                     data: arrayFallecidos
