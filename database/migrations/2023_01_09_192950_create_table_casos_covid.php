@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('numeroDeCasosMasculinos');
             $table->integer('numeroDeCasosFemeninos');
             $table->date('mesDelReporte');
+            $table->timestamps();
         });
     }
 

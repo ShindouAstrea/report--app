@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('regiones', function (Blueprint $table) {
             $table->index('idRegion');
-            $table->integer('idRegion')->primary();
+            $table->integer('idRegion')->autoIncrement();
             $table->string('nombreRegion');
+            $table->timestamps();
         });
     }
 
